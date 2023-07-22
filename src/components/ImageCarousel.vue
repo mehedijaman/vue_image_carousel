@@ -33,7 +33,7 @@ const carouselItems = [
 </script>
 
 <template>
-  <h3>Vue 3 Image Carousel</h3>
+  <h3>Vue Image Carousel</h3>
   <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">    
     <ol class="carousel-indicators">
       <li @click="activeIndex = index" data-target="#carouselExampleCaptions" v-for="(items, index) in carouselItems" :key="index" :class="index == activeIndex?'active':''"></li>
