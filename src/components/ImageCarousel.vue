@@ -7,7 +7,7 @@ const carouselItems = [
   {
     image: 'https://images.unsplash.com/photo-1682687982046-e5e46906bc6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
     title: 'First Slide Label',
-    caption: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    caption: 'Nulla vitae elit libero, a pharetra augue mollis interdum. Nulla vitae elit libero, a pharetra augue'
   },
   {
     image: 'https://images.unsplash.com/photo-1682687982167-d7fb3ed8541d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80',
@@ -33,13 +33,18 @@ const carouselItems = [
 </script>
 
 <template>
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">    
+  <h3>Vue 3 Image Carousel</h3>
+  <div id="carouselExampleCaptions" class="carousel" data-ride="carousel">    
     <ol class="carousel-indicators">
       <li @click="activeIndex = index" data-target="#carouselExampleCaptions" v-for="(items, index) in carouselItems" :key="index" :class="index == activeIndex?'active':''"></li>
     </ol>
 
+    <ol class="carousel-thumnails">
+      <img src="" alt="">
+    </ol>
+
     <div class="carousel-inner">        
-      <div class="carousel-item active fadeIn">
+      <div class="carousel-item active">
         <img height="500" :src="carouselItems[activeIndex].image" class="d-block w-100 img img-responsive" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>{{ carouselItems[activeIndex].title }}</h5>
@@ -48,11 +53,11 @@ const carouselItems = [
       </div>  
     </div>
     
-    <a @click.prevent="0 == activeIndex? activeIndex = (carouselItems.length) - 1: activeIndex--" class="carousel-control-prev" href="#" role="button" data-slide="prev">
+    <a @click.prevent="0 == activeIndex ? activeIndex = (carouselItems.length) - 1 : activeIndex--" class="carousel-control-prev" href="#" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a @click.prevent ="(carouselItems.length) - 1 == activeIndex?activeIndex=0:activeIndex++" class="carousel-control-next" href="#" role="button" data-slide="next">
+    <a @click.prevent="(carouselItems.length) - 1 == activeIndex ? activeIndex = 0 : activeIndex++" class="carousel-control-next" href="#" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -60,19 +65,5 @@ const carouselItems = [
 </template>
 
 <style scoped>
-  /* Slide fade animation */
-  .slide-fade-enter-active,
-  .slide-fade-leave-active {
-    transition: opacity 0.5s ease;
-  }
-
-  .slide-fade-enter,
-  .slide-fade-leave-to /* .slide-fade-leave-active in <2.1.8 */ {
-    opacity: 0;
-  }
-
-  /* Optional: Add some spacing between slides */
-  .slide-fade-move {
-    transition: none;
-  }
+  
 </style>
