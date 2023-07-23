@@ -65,7 +65,6 @@
   <h4>Vue Image Carousel</h4>
   <ol class="carousel-thumnails">
     <img @click="activeIndex = index" height="50" :style="activeIndex != index?imageFilter:''" style="cursor: pointer;" class="mx-1" v-for="(thumnail, index) in carouselItems" :key="index" :src="thumnail.image" alt="">
-    
   </ol>
   <div @mouseover="stopSlideShow" @mouseleave="startSlideShow" id="carouselExampleCaptions" class="carousel">    
     <ol class="carousel-indicators">
